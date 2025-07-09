@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App - Professional Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="page active">
+        <div class="container">
+            <div class="login-header">
+                <h1>Weather Dashboard</h1>
+                <p class="subtitle">Professional Weather Analytics Platform</p>
+            </div>
+
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Sign In</button>
+            </form>
+
+            <div class="auth-actions">
+                <button type="button" class="btn btn-secondary" onclick="showRegisterPage()">Create Account</button>
+            </div>
+
+            <div id="loginError" class="error"></div>
+            <div id="loginSuccess" class="success"></div>
+        </div>
+    </div>
+
+    <!-- Register Page -->
+    <div id="registerPage" class="page">
+        <div class="container">
+            <div class="login-header">
+                <h1>Create Account</h1>
+                <p class="subtitle">Join the Weather Analytics Platform</p>
+            </div>
+            
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label for="newUsername">Username</label>
+                    <input type="text" id="newUsername" name="newUsername" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="newPassword">Password</label>
+                    <input type="password" id="newPassword" name="newPassword" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Create Account</button>
+            </form>
+
+            <div class="auth-actions">
+                <button type="button" class="btn btn-secondary" onclick="showLoginPage()">Back to Login</button>
+            </div>
+
+            <div id="registerError" class="error"></div>
+            <div id="registerSuccess" class="success"></div>
+        </div>
+    </div>
+
+    <!-- Weather Page -->
+    <div id="weatherPage" class="page">
+        <div class="dashboard-container">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-content">
+                    <h1>Weather Analytics Dashboard</h1>
+                    <div class="user-info">
+                        <span class="welcome-text">Welcome, <span id="currentUser"></span></span>
+                        <button class="btn btn-logout" onclick="logout()">Logout</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="dashboard-main">
+                <div class="search-section">
+                    <div class="search-container">
+                        <h2>Weather Search</h2>
+                        <div class="search-form">
+                            <div class="form-group">
+                                <label for="cityInput">Enter City Name</label>
+                                <input type="text" id="cityInput" placeholder="e.g., London, New York, Tokyo..." />
+                            </div>
+                            <button id="searchBtn" class="btn btn-primary">Get Weather Data</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-section">
+                    <div id="loading" class="loading">
+                        <div class="loading-spinner"></div>
+                        <span>Loading weather data...</span>
+                    </div>
+
+                    <div id="weatherError" class="error"></div>
+
+                    <div id="weatherInfo" class="weather-info">
+                        <div class="weather-header">
+                            <div class="city-info">
+                                <h3 id="cityName"></h3>
+                                <div class="weather-main">
+                                    <div class="temperature" id="temperature"></div>
+                                    <div class="weather-description" id="description"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="weather-details">
+                            <div class="detail-card">
+                                <div class="detail-label">Feels Like</div>
+                                <div class="detail-value" id="feelsLike"></div>
+                            </div>
+                            <div class="detail-card">
+                                <div class="detail-label">Humidity</div>
+                                <div class="detail-value" id="humidity"></div>
+                            </div>
+                            <div class="detail-card">
+                                <div class="detail-label">Wind Speed</div>
+                                <div class="detail-value" id="windSpeed"></div>
+                            </div>
+                            <div class="detail-card">
+                                <div class="detail-label">Pressure</div>
+                                <div class="detail-value" id="pressure"></div>
+                            </div>
+                            <div class="detail-card">
+                                <div class="detail-label">Visibility</div>
+                                <div class="detail-value" id="visibility"></div>
+                            </div>
+                            <div class="detail-card">
+                                <div class="detail-label">UV Index</div>
+                                <div class="detail-value" id="uvIndex">N/A</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
